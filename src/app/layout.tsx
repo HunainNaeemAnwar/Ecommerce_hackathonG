@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import SignUpSuggestion from "@/components/SignUpSuggestion";
+import NavBar from "@/components/NavBar";
+import FooterSection from "@/components/FooterSection";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -10,6 +13,21 @@ const geistSans = localFont({
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
+  weight: "100 900",
+});
+const integral = localFont({
+  src: "./fonts/IntegarCFbold.otf",
+  variable: "--font-geist-integral",
+  weight: "100 900",
+});
+const satoshi_bold = localFont({
+  src: "./fonts/Satoshi-Medium.otf",
+  variable: "--font-geist-satoshibold",
+  weight: "100 900",
+});
+const satoshi_regular = localFont({
+  src: "./fonts/Satoshi-Regular.otf",
+  variable: "--font-geist-satoshiregular",
   weight: "100 900",
 });
 
@@ -26,9 +44,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${integral.variable} ${satoshi_bold.variable} ${satoshi_regular.variable} antialiased `}
       >
+        <SignUpSuggestion />
+        <NavBar />
         {children}
+        <div className="container mx-auto xl:px-[45px] px-7 relative h-[700px] md:px-7 py-[100px] ">
+          <FooterSection />
+        </div>
       </body>
     </html>
   );
