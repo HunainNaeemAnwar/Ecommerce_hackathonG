@@ -6,7 +6,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <section>
-      <div className="grid  mt-[150px] grid-cols-1 relative md:grid-cols-12 gap-y-6 lg:gap-y-0 md:gap-y-[120px] pb-[120px] md:pb-0 px-6 xl:px-[100px] md:grid-rows-[80%_20%]   ">
+      <div className="grid  mt-[150px] grid-cols-1 relative md:grid-cols-12  gap-y-10 xl:gap-y-[90px] lg:gap-y-[110px]  md:gap-y-[120px] pb-[120px] md:pb-0 px-6 xl:px-[100px] md:grid-rows-[80%_20%]   ">
         {" "}
         <div className="col-span-6  md:py-6 lg:py-12 xl:py-16   mt-10 place-self-start text-center sm:text-left   ">
           {" "}
@@ -27,18 +27,20 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-6 relative border bg-black place-self-center md:mt-[59px]   h-[400px] w-[400px] md:w-[390px] md:h-[430px] lg:w-[500px] lg:h-[550px]  xl:w-[580px] xl:h-[630px]    ">
+        {/* hero image */}
+        <div className="col-span-6 relative  place-self-center md:mt-[59px]  bg-[#F2F0F1]  h-[400px] w-[400px] md:w-[390px] md:h-[430px] lg:w-[480px] lg:h-[500px]  xl:w-[580px] xl:h-[600px] ">
           <Image
-            src={"/Images/Hero-Pic.jpg"}
+            src={"/Images/Hero-Pic.jpeg"}
             alt="Hero Image"
             layout="fill"
-            objectFit="cover"
-            className="absolute "
+            objectFit="fit"
+            className="absolute bg-transparent "
           />
         </div>
-        <div className="w-full grid md:grid-rows-1 grid-rows-[1fr_1fr] md:grid-cols-5 grid-cols-3 place-items-center   place-self-end absolute bg-black h-[122px]  ">
+        {/* brands image */}
+        <div className="w-full grid md:grid-rows-1  md:grid-cols-5 grid-cols-3 place-items-center  place-self-end absolute bg-black h-[122px]  ">
           <Link href={"/"}>
-            <div>
+            <div className="w-[120px] h-[30px] ">
               {" "}
               <Image
                 src={"/Images/Brands/versace.png"}
@@ -49,7 +51,7 @@ const HeroSection = () => {
             </div>
           </Link>
           <Link href={"/"}>
-            <div>
+            <div className="w-[120px] h-[50px]">
               <Image
                 src={"/Images/Brands/zara.png"}
                 width={100}
@@ -59,7 +61,7 @@ const HeroSection = () => {
             </div>
           </Link>
           <Link href={"/"}>
-            <div>
+            <div className="w-[120px] h-[30px] ">
               <Image
                 src={"/Images/Brands/gucci.png"}
                 width={100}
@@ -67,22 +69,22 @@ const HeroSection = () => {
                 alt="gucci"
               />
             </div>
-          </Link>
-          <Link href={"/"}>
-            <div>
+          </Link>{" "}
+          <Link href={"/"} className="col-span-2 md:col-span-1">
+            <div className="w-[120px] h-[30px] ">
               <Image
                 src={"/Images/Brands/prada.png"}
-                width={100}
+                width={120}
                 height={100}
                 alt="prada"
               />
             </div>
           </Link>
-          <Link href={"/"}>
-            <div>
+          <Link href={"/"} className="mr-[130px] md:mr-0">
+            <div className="w-[120px] h-[30px] ">
               <Image
                 src={"/Images/Brands/calvin klein.png"}
-                width={100}
+                width={120}
                 height={100}
                 alt="calvin klein"
               />

@@ -2,11 +2,11 @@
 import React from "react";
 import Link from "next/link";
 import { BiSearch, BiUserCircle } from "react-icons/bi";
-import { RiArrowDropDownLine, RiShoppingCartLine } from "react-icons/ri";
+import { RiShoppingCartLine } from "react-icons/ri";
 import { CgClose } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MenuOverlay from "./MenuOverlay";
-
+import DropDown from "./DropDown";
 const navLinks = [
   {
     title: "Shop",
@@ -26,11 +26,34 @@ const navLinks = [
   },
 ];
 
+const dropOptions = [
+  {
+    route: "/",
+    label: "Casual",
+    value: "casual",
+  },
+  {
+    route: "/CartPage",
+    label: "Formal",
+    value: "formal",
+  },
+
+  {
+    route: "/CartPage",
+    label: "Party",
+    value: "party",
+  },
+];
+
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
-    <nav className="absolute top-[62px] w-full  bg-white  md:py-3 z-50  ">
-      <div className="mobile-menu   flex flex-row justify-between  items-center   md:hidden   ">
+    // navbar
+
+    <nav className="absolute top-[62px] w-full   md:py-3 z-50  px-4 lg:px-8   ">
+      {/* Mobile navbar  */}
+
+      <div className="mobile-menu  relative  flex flex-row justify-between  items-center   md:hidden   ">
         <div>
           {!navbarOpen ? (
             <button
@@ -48,8 +71,10 @@ const NavBar = () => {
             </button>
           )}
         </div>
-        <div className="font-IntegralCF  text-[25px] ml-[-200px] ">SHOP.CO</div>
-        <div className="flex flex-row items-center justify-between gap-2">
+        <div className="font-IntegralCF absolute left-12  text-[25px]   ">
+          SHOP.CO
+        </div>
+        <div className="flex absolute right-0   flex-row items-center justify-between  gap-3">
           {" "}
           <Link href={"/"}>
             <BiSearch className="h-5 w-5" />
@@ -62,24 +87,24 @@ const NavBar = () => {
           </Link>
         </div>
       </div>
-      <div className="md:flex items-center hidden justify-evenly xl:gap-[70px]  md:gap-7">
+
+      {/* Desktop navbar */}
+
+      <div className="md:flex items-center hidden justify-between xl:gap-[50px] lg:gap-[10px]  md:gap-1">
         <h2 className="font-IntegralCF  text-black md:text-[27px] lg:text-[32px]  ">
           SHOP.CO
         </h2>{" "}
-        <ul className="flex items-center justify-center  gap-3  md:gap-4 lg:gap-8 py-2 font-SatoshiRegular text-black  text-[14px] lg:text-[16px]  ">
+        <ul className="flex items-center justify-center   gap-3  md:gap-4 lg:gap-8 py-2 font-SatoshiRegular text-black  text-[14px] lg:text-[16px]  ">
           <li>
-            <Link href={"/CartPage"}>
-              <div className="flex flex-row items-center ">
-                Shop
-                <RiArrowDropDownLine className="w-6 h-6" />
-              </div>
-            </Link>
+            <DropDown DropDownOptions={dropOptions} />
           </li>
           <li>
             <Link href={"/CategoryPage"}>OnSale</Link>
           </li>
           <li>
-            <Link href={"/CartPage"}>New Arrivals </Link>
+            <Link href={"/CartPage"} className="text-ellipsis">
+              New Arrivals{" "}
+            </Link>
           </li>
           <li>
             <Link href={"/"}>Brands</Link>
@@ -90,7 +115,7 @@ const NavBar = () => {
             <input
               type="text"
               placeholder="Search for products..."
-              className="font-SatoshiRegular lg:text-[16px] md:text-[13px] xl:py-2 md:py-1 lg:pl-7 md:pl-6 xl:pr-[250px] lg:pr-[70px] md:pr-[10px] text-black"
+              className="font-SatoshiRegular lg:text-[16px] md:text-[13px] xl:py-2 md:py-1 lg:pl-7 md:pl-5 xl:pr-[150px] lg:pr-[50px] md:pr-[5px] border border-black border-opacity-35 rounded-md text-black"
             />
             <button className="absolute left-2 top-[8px] lg:top-[6px] xl:top-[10px]  ">
               <BiSearch className="w-4 h-4 lg:w-5 lg:h-5 text-black opacity-30 " />
@@ -111,5 +136,4 @@ const NavBar = () => {
     </nav>
   );
 };
-
 export default NavBar;

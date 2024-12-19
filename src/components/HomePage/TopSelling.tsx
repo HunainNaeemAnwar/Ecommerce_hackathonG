@@ -44,7 +44,7 @@ const TopSelling = () => {
       <div className=" flex justify-center items-center text-[36px] lg:text-[48px] font-IntegralCF ">
         <p>Top Selling</p>
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-10 ">
+      <div className=" grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-10 ">
         {" "}
         {Arrival.map(
           (item: {
